@@ -47,7 +47,7 @@ internal sealed class FortiClient
 
     public async Task<List<FortiCert>> ListLocalCertsAsync(string? vdom)
     {
-        var json = await _http.GetStringAsync(Url("/api/v2/cmdb/vpn.certificate/local", null, vdom));
+        var json = await _http.GetStringAsync(Url("/api/v2/cmdb/certificate/local", null, vdom));
         using var doc = JsonDocument.Parse(json);
 
         var list = new List<FortiCert>();
@@ -69,7 +69,7 @@ internal sealed class FortiClient
     {
         try
         {
-            var url = Url($"/api/v2/cmdb/vpn.certificate/local/{Uri.EscapeDataString(name)}", null, vdom);
+            var url = Url($"/api/v2/cmdb/certificate/local/{Uri.EscapeDataString(name)}", null, vdom);
             var resp = await _http.GetAsync(url);
             if (!resp.IsSuccessStatusCode)
             {
@@ -104,6 +104,11 @@ internal sealed class FortiClient
             }
 
             var pem = certProp.GetString();
+            if (pem == "")
+            {
+                Logger.Warn($"Get cert meta skipped for '{name}': 'certificate' field empty");
+                return null;
+            }
             const string begin = "-----BEGIN CERTIFICATE-----";
             const string end = "-----END CERTIFICATE-----";
             var i = pem!.IndexOf(begin, StringComparison.Ordinal);
