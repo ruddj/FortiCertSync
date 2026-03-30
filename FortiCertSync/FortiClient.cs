@@ -47,7 +47,7 @@ internal sealed class FortiClient
 
     public async Task<List<FortiCert>> ListLocalCertsAsync(string? vdom)
     {
-        var json = await _http.GetStringAsync(Url("/api/v2/cmdb/certificate/local", null, vdom));
+        var json = await _http.GetStringAsync(Url("/api/v2/cmdb/vpn.certificate/local", null, vdom));
         using var doc = JsonDocument.Parse(json);
 
         var list = new List<FortiCert>();
@@ -56,11 +56,24 @@ internal sealed class FortiClient
 
         foreach (var el in results.EnumerateArray())
         {
+            // Skip Factory Certificates
+            var source = el.TryGetProperty("source", out var s) ? s.GetString() : null;
+            if (String.Equals(source, "factory", StringComparison.OrdinalIgnoreCase)) continue;
+
             var name = el.TryGetProperty("name", out var n) ? n.GetString() : null;
             if (string.IsNullOrWhiteSpace(name)) continue;
 
-            var cert = await GetLocalCertAsync(name!, vdom);
-            if (cert != null) list.Add(cert);
+            // Check if global or VDOM certificate
+            var range = el.TryGetProperty("range", out var r) ? r.GetString() : null;
+            if (String.Equals(range, "vdom", StringComparison.OrdinalIgnoreCase)) {
+                var cert = await GetLocalCertAsync(name!, vdom);
+                if (cert != null) list.Add(cert);
+            } else
+            {
+                var cert = await GetLocalCertAsync(name!, null);
+                if (cert != null) list.Add(cert);
+            }
+
         }
         return list;
     }
@@ -69,7 +82,15 @@ internal sealed class FortiClient
     {
         try
         {
-            var url = Url($"/api/v2/cmdb/certificate/local/{Uri.EscapeDataString(name)}", null, vdom);
+            var url = "";
+            if (string.IsNullOrWhiteSpace(vdom))  {
+                // Global certificates can not be viewed in vpn-certificate
+                url = Url($"/api/v2/cmdb/certificate/local/{Uri.EscapeDataString(name)}", null, null);
+            }  else
+            {
+                url = Url($"/api/v2/cmdb/vpn.certificate/local/{Uri.EscapeDataString(name)}", null, vdom);
+            }
+
             var resp = await _http.GetAsync(url);
             if (!resp.IsSuccessStatusCode)
             {
