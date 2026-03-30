@@ -63,17 +63,15 @@ internal sealed class FortiClient
             var name = el.TryGetProperty("name", out var n) ? n.GetString() : null;
             if (string.IsNullOrWhiteSpace(name)) continue;
 
+            var vdomlc = vdom; // VDom to use for local cert retrieval, null for global certs
+
             // Check if global or VDOM certificate
             var range = el.TryGetProperty("range", out var r) ? r.GetString() : null;
-            if (String.Equals(range, "vdom", StringComparison.OrdinalIgnoreCase)) {
-                var cert = await GetLocalCertAsync(name!, vdom);
-                if (cert != null) list.Add(cert);
-            } else
-            {
-                var cert = await GetLocalCertAsync(name!, null);
-                if (cert != null) list.Add(cert);
-            }
+            if (String.Equals(range, "global", StringComparison.OrdinalIgnoreCase)) vdomlc = null;
 
+            // Retrieve full certificate details to get the PEM content and parse it
+            var cert = await GetLocalCertAsync(name!, vdomlc);
+            if (cert != null) list.Add(cert);
         }
         return list;
     }
