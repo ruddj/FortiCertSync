@@ -123,7 +123,7 @@ internal sealed class FortiClient
             }
 
             var pem = certProp.GetString();
-            if (pem == "")
+            if (string.IsNullOrWhiteSpace(pem))
             {
                 Logger.Warn($"Get cert meta skipped for '{name}': 'certificate' field empty");
                 return null;
