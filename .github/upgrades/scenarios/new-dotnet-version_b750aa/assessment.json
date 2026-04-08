@@ -1,0 +1,1137 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
+  },
+  "analysisStartTime": "2026-04-08T10:08:22.8139674Z",
+  "analysisEndTime": "2026-04-08T10:08:23.7966491Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 4,
+      "incidents": 39,
+      "effort": 39
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 1,
+        "Optional": 0,
+        "Potential": 38,
+        "Information": 0
+      },
+      "category": {
+        "NuGet": 1,
+        "Project": 1,
+        "Api": 37
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "FortiCertSync\\FortiCertSync.csproj",
+      "startingProject": true,
+      "issues": 4,
+      "storyPoints": 39,
+      "properties": {
+        "appName": "FortiCertSync",
+        "projectKind": "DotNetCoreApp",
+        "frameworks": [
+          "net8.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 6,
+        "numberOfCodeFiles": 5,
+        "linesTotal": 825,
+        "linesOfCode": 764,
+        "totalApiScanned": 1271,
+        "minLinesOfCodeToChange": 37,
+        "maxLinesOfCodeToChange": 37
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "eb214bfe-4cae-4dbd-9540-7ec88f67ea26",
+          "ruleId": "NuGet.0002",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Security.Cryptography.ProtectedData, 9.0.8\n\nRecommendation:\n\nRemove System.Security.Cryptography.ProtectedData, and replace with new package System.Security.Cryptography.ProtectedData 10.0.5",
+              "protected": "System.Security.Cryptography.ProtectedData, 9.0.8\n\nRecommendation:\n\nRemove System.Security.Cryptography.ProtectedData, and replace with new package System.Security.Cryptography.ProtectedData 10.0.5"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiCertSync.csproj",
+            "snippet": "System.Security.Cryptography.ProtectedData, 9.0.8\n\nRecommendation:\n\nRemove System.Security.Cryptography.ProtectedData, and replace with new package System.Security.Cryptography.ProtectedData 10.0.5",
+            "protectedSnippet": "System.Security.Cryptography.ProtectedData, 9.0.8\n\nRecommendation:\n\nRemove System.Security.Cryptography.ProtectedData, and replace with new package System.Security.Cryptography.ProtectedData 10.0.5",
+            "label": "System.Security.Cryptography.ProtectedData 9.0.8",
+            "properties": {
+              "PackageId": "System.Security.Cryptography.ProtectedData",
+              "PackageVersion": "9.0.8",
+              "PackageNewVersion": "10.0.5",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "0e91d38f-3c98-4c47-ac23-e84d57cf540f",
+          "ruleId": "Project.0002",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net8.0\nRecommended target framework: net10.0",
+              "protected": "Current target framework: net8.0\nRecommended target framework: net10.0"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiCertSync.csproj",
+            "snippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "protectedSnippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "properties": {
+              "CurrentTargetFramework": "net8.0",
+              "RecommendedTargetFramework": "net10.0"
+            }
+          }
+        },
+        {
+          "incidentId": "2ee3c39b-e16d-4012-a712-8ed41163129e",
+          "ruleId": "Api.0003",
+          "description": "Breaking change - Streaming HTTP responses enabled by default in browser HTTP clients ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+              "protected": "T:System.Net.Http.HttpContent"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+            "protectedSnippet": "T:System.Net.Http.HttpContent",
+            "label": "T:System.Net.Http.HttpContent",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/default-http-streaming.md",
+                "isCustom": false
+              }
+            ],
+            "line": 362,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "e3676c9e-11a4-42e9-889a-78938c1904e2",
+          "ruleId": "Api.0003",
+          "description": "Nullable JsonDocument properties deserialize to JsonValueKind.Null ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+              "protected": "T:System.Text.Json.JsonDocument"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+            "protectedSnippet": "T:System.Text.Json.JsonDocument",
+            "label": "T:System.Text.Json.JsonDocument",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/serialization/9.0/jsondocument-props.md",
+                "isCustom": false
+              }
+            ],
+            "line": 362,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "763516f1-bb5f-44d0-a0bc-14a7a485c185",
+          "ruleId": "Api.0003",
+          "description": "Nullable JsonDocument properties deserialize to JsonValueKind.Null ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+              "protected": "T:System.Text.Json.JsonDocument"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+            "protectedSnippet": "T:System.Text.Json.JsonDocument",
+            "label": "T:System.Text.Json.JsonDocument",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/serialization/9.0/jsondocument-props.md",
+                "isCustom": false
+              }
+            ],
+            "line": 362,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "42d6cd53-afa2-4a4f-ad66-05c355b4a6e9",
+          "ruleId": "Api.0003",
+          "description": "Breaking change - Streaming HTTP responses enabled by default in browser HTTP clients ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "throw new Exception($\u0022Failed to enumerate existed {fieldName} in {url}: {(int)resp.StatusCode} {await resp.Content.ReadAsStringAsync()}\u0022);",
+              "protected": "T:System.Net.Http.HttpContent"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "throw new Exception($\u0022Failed to enumerate existed {fieldName} in {url}: {(int)resp.StatusCode} {await resp.Content.ReadAsStringAsync()}\u0022);",
+            "protectedSnippet": "T:System.Net.Http.HttpContent",
+            "label": "T:System.Net.Http.HttpContent",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/default-http-streaming.md",
+                "isCustom": false
+              }
+            ],
+            "line": 360,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "47f6c38f-42cd-42d5-853f-97f984d72ce3",
+          "ruleId": "Api.0003",
+          "description": "Breaking change - Streaming HTTP responses enabled by default in browser HTTP clients ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "throw new Exception($\u0022Rebind {fieldName}in {url} failed: {(int)resp.StatusCode} {await resp.Content.ReadAsStringAsync()}\u0022);",
+              "protected": "T:System.Net.Http.HttpContent"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "throw new Exception($\u0022Rebind {fieldName}in {url} failed: {(int)resp.StatusCode} {await resp.Content.ReadAsStringAsync()}\u0022);",
+            "protectedSnippet": "T:System.Net.Http.HttpContent",
+            "label": "T:System.Net.Http.HttpContent",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/default-http-streaming.md",
+                "isCustom": false
+              }
+            ],
+            "line": 351,
+            "column": 22
+          }
+        },
+        {
+          "incidentId": "52f8cb20-661c-4c57-bce5-85a8d2715a29",
+          "ruleId": "Api.0003",
+          "description": "Breaking change - Streaming HTTP responses enabled by default in browser HTTP clients ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var req = new HttpRequestMessage(HttpMethod.Put, url) { Content = content };",
+              "protected": "T:System.Net.Http.HttpContent"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var req = new HttpRequestMessage(HttpMethod.Put, url) { Content = content };",
+            "protectedSnippet": "T:System.Net.Http.HttpContent",
+            "label": "T:System.Net.Http.HttpContent",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/default-http-streaming.md",
+                "isCustom": false
+              }
+            ],
+            "line": 347,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "7de69ba4-1fc7-42f3-92b9-a763b5e0bc19",
+          "ruleId": "Api.0003",
+          "description": "Breaking change - Streaming HTTP responses enabled by default in browser HTTP clients ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+              "protected": "T:System.Net.Http.HttpContent"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+            "protectedSnippet": "T:System.Net.Http.HttpContent",
+            "label": "T:System.Net.Http.HttpContent",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/default-http-streaming.md",
+                "isCustom": false
+              }
+            ],
+            "line": 280,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "c116625a-3305-45e5-80a2-a9b737ea6cce",
+          "ruleId": "Api.0003",
+          "description": "Nullable JsonDocument properties deserialize to JsonValueKind.Null ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+              "protected": "T:System.Text.Json.JsonDocument"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+            "protectedSnippet": "T:System.Text.Json.JsonDocument",
+            "label": "T:System.Text.Json.JsonDocument",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/serialization/9.0/jsondocument-props.md",
+                "isCustom": false
+              }
+            ],
+            "line": 280,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "2cd329a8-462b-4a3e-af3f-0ba174a96b4f",
+          "ruleId": "Api.0003",
+          "description": "Nullable JsonDocument properties deserialize to JsonValueKind.Null ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+              "protected": "T:System.Text.Json.JsonDocument"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+            "protectedSnippet": "T:System.Text.Json.JsonDocument",
+            "label": "T:System.Text.Json.JsonDocument",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/serialization/9.0/jsondocument-props.md",
+                "isCustom": false
+              }
+            ],
+            "line": 280,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "3fb7b359-c680-4603-a26f-fd29343b2634",
+          "ruleId": "Api.0003",
+          "description": "Breaking change - Streaming HTTP responses enabled by default in browser HTTP clients ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Logger.Error($\u0022Failed to enumerate usage references for {mkey}: {(int)resp.StatusCode} {await resp.Content.ReadAsStringAsync()}\u0022);",
+              "protected": "T:System.Net.Http.HttpContent"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "Logger.Error($\u0022Failed to enumerate usage references for {mkey}: {(int)resp.StatusCode} {await resp.Content.ReadAsStringAsync()}\u0022);",
+            "protectedSnippet": "T:System.Net.Http.HttpContent",
+            "label": "T:System.Net.Http.HttpContent",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/default-http-streaming.md",
+                "isCustom": false
+              }
+            ],
+            "line": 276,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b8b3b0e3-4f95-4e39-8f97-092756e49744",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var query = $\u0022q_path=vpn.certificate\u0026q_name=local\u0026mkey={Uri.EscapeDataString(mkey)}\u0022;",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var query = $\u0022q_path=vpn.certificate\u0026q_name=local\u0026mkey={Uri.EscapeDataString(mkey)}\u0022;",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 270,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "da50ed42-a272-4388-8b98-11c078bee5f7",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "sb.Append(hasQ ? \u0027\u0026\u0027 : \u0027?\u0027).Append(\u0022vdom=\u0022).Append(Uri.EscapeDataString(vdom));",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "sb.Append(hasQ ? \u0027\u0026\u0027 : \u0027?\u0027).Append(\u0022vdom=\u0022).Append(Uri.EscapeDataString(vdom));",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 265,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "617827b4-ccee-4fcc-9f9e-1ee978a1612d",
+          "ruleId": "Api.0003",
+          "description": "Breaking change - Streaming HTTP responses enabled by default in browser HTTP clients ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var body = await resp.Content.ReadAsStringAsync();",
+              "protected": "T:System.Net.Http.HttpContent"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var body = await resp.Content.ReadAsStringAsync();",
+            "protectedSnippet": "T:System.Net.Http.HttpContent",
+            "label": "T:System.Net.Http.HttpContent",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/default-http-streaming.md",
+                "isCustom": false
+              }
+            ],
+            "line": 249,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "c4121662-2367-4080-b79c-2c77a50fabd8",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: Windows private key lifetime simplified ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "collection.Import(pfxBytes, pfxPass, X509KeyStorageFlags.Exportable);",
+              "protected": "M:System.Security.Cryptography.X509Certificates.X509Certificate2Collection.Import(System.Byte[],System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "collection.Import(pfxBytes, pfxPass, X509KeyStorageFlags.Exportable);",
+            "protectedSnippet": "M:System.Security.Cryptography.X509Certificates.X509Certificate2Collection.Import(System.Byte[],System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)",
+            "label": "M:System.Security.Cryptography.X509Certificates.X509Certificate2Collection.Import(System.Byte[],System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/cryptography/9.0/private-key-lifetime.md",
+                "isCustom": false
+              }
+            ],
+            "line": 210,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "24dff9f4-43c0-4469-885b-d5a2878c2131",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var cmdbUrl = Url($\u0022/api/v2/cmdb/{r.Path}/{r.Name}/{Uri.EscapeDataString(r.Mkey)}/\u0022, null, vdom);",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var cmdbUrl = Url($\u0022/api/v2/cmdb/{r.Path}/{r.Name}/{Uri.EscapeDataString(r.Mkey)}/\u0022, null, vdom);",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 188,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "f570519b-baa5-4e7b-924a-081d0445ca09",
+          "ruleId": "Api.0003",
+          "description": "Breaking change - Streaming HTTP responses enabled by default in browser HTTP clients ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "throw new Exception($\u0022Delete cert {name} failed: {(int)resp.StatusCode} {await resp.Content.ReadAsStringAsync()}\u0022);",
+              "protected": "T:System.Net.Http.HttpContent"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "throw new Exception($\u0022Delete cert {name} failed: {(int)resp.StatusCode} {await resp.Content.ReadAsStringAsync()}\u0022);",
+            "protectedSnippet": "T:System.Net.Http.HttpContent",
+            "label": "T:System.Net.Http.HttpContent",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/default-http-streaming.md",
+                "isCustom": false
+              }
+            ],
+            "line": 174,
+            "column": 39
+          }
+        },
+        {
+          "incidentId": "289477d4-4729-45a3-a555-2a0b8c1ff89a",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var url = Url($\u0022/api/v2/cmdb/vpn.certificate/local/{Uri.EscapeDataString(name)}\u0022, null, vdom);",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var url = Url($\u0022/api/v2/cmdb/vpn.certificate/local/{Uri.EscapeDataString(name)}\u0022, null, vdom);",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 172,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "3b2ae9ae-5546-4321-934d-66398ceaa83f",
+          "ruleId": "Api.0003",
+          "description": "Breaking change - Streaming HTTP responses enabled by default in browser HTTP clients ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "throw new Exception($\u0022Import cert \u0027{mkey}\u0027 failed: {(int)resp.StatusCode} {await resp.Content.ReadAsStringAsync()}\u0022);",
+              "protected": "T:System.Net.Http.HttpContent"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "throw new Exception($\u0022Import cert \u0027{mkey}\u0027 failed: {(int)resp.StatusCode} {await resp.Content.ReadAsStringAsync()}\u0022);",
+            "protectedSnippet": "T:System.Net.Http.HttpContent",
+            "label": "T:System.Net.Http.HttpContent",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/default-http-streaming.md",
+                "isCustom": false
+              }
+            ],
+            "line": 167,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "801ffc83-4e49-4b62-90c8-caac5f446520",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: X500DistinguishedName validation is stricter ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var issuer = new X500DistinguishedName(x509.Issuer);",
+              "protected": "M:System.Security.Cryptography.X509Certificates.X500DistinguishedName.#ctor(System.String)"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var issuer = new X500DistinguishedName(x509.Issuer);",
+            "protectedSnippet": "M:System.Security.Cryptography.X509Certificates.X500DistinguishedName.#ctor(System.String)",
+            "label": "M:System.Security.Cryptography.X509Certificates.X500DistinguishedName.#ctor(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/cryptography/10.0/x500distinguishedname-validation.md",
+                "isCustom": false
+              }
+            ],
+            "line": 127,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "3353f6dc-06d9-4cdd-b8f9-7ca509347b3d",
+          "ruleId": "Api.0002",
+          "description": "Some X509Certificate2 and X509Certificate constructors are obsolete ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var x509 = new X509Certificate2(Convert.FromBase64String(b64));",
+              "protected": "M:System.Security.Cryptography.X509Certificates.X509Certificate2.#ctor(System.Byte[])"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var x509 = new X509Certificate2(Convert.FromBase64String(b64));",
+            "protectedSnippet": "M:System.Security.Cryptography.X509Certificates.X509Certificate2.#ctor(System.Byte[])",
+            "label": "M:System.Security.Cryptography.X509Certificates.X509Certificate2.#ctor(System.Byte[])",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/cryptography/9.0/x509-certificates.md",
+                "isCustom": false
+              }
+            ],
+            "line": 118,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "8705e05e-7e48-4066-8d3b-1021eab7d66a",
+          "ruleId": "Api.0003",
+          "description": "Breaking change - Streaming HTTP responses enabled by default in browser HTTP clients ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+              "protected": "T:System.Net.Http.HttpContent"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+            "protectedSnippet": "T:System.Net.Http.HttpContent",
+            "label": "T:System.Net.Http.HttpContent",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/default-http-streaming.md",
+                "isCustom": false
+              }
+            ],
+            "line": 79,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "bf512311-4c2a-4368-b812-e63d91f8dea1",
+          "ruleId": "Api.0003",
+          "description": "Nullable JsonDocument properties deserialize to JsonValueKind.Null ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+              "protected": "T:System.Text.Json.JsonDocument"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+            "protectedSnippet": "T:System.Text.Json.JsonDocument",
+            "label": "T:System.Text.Json.JsonDocument",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/serialization/9.0/jsondocument-props.md",
+                "isCustom": false
+              }
+            ],
+            "line": 79,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "26240415-7324-49e5-8cc9-6ec92f69163a",
+          "ruleId": "Api.0003",
+          "description": "Nullable JsonDocument properties deserialize to JsonValueKind.Null ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+              "protected": "T:System.Text.Json.JsonDocument"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());",
+            "protectedSnippet": "T:System.Text.Json.JsonDocument",
+            "label": "T:System.Text.Json.JsonDocument",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/serialization/9.0/jsondocument-props.md",
+                "isCustom": false
+              }
+            ],
+            "line": 79,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "1162b84a-6e0a-459d-9f67-ac2fa47f6161",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var url = Url($\u0022/api/v2/cmdb/vpn.certificate/local/{Uri.EscapeDataString(name)}\u0022, null, vdom);",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var url = Url($\u0022/api/v2/cmdb/vpn.certificate/local/{Uri.EscapeDataString(name)}\u0022, null, vdom);",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 71,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "dc98d31a-d41d-446c-9ce0-eedf9c862fd5",
+          "ruleId": "Api.0003",
+          "description": "Nullable JsonDocument properties deserialize to JsonValueKind.Null ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var doc = JsonDocument.Parse(json);",
+              "protected": "T:System.Text.Json.JsonDocument"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var doc = JsonDocument.Parse(json);",
+            "protectedSnippet": "T:System.Text.Json.JsonDocument",
+            "label": "T:System.Text.Json.JsonDocument",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/serialization/9.0/jsondocument-props.md",
+                "isCustom": false
+              }
+            ],
+            "line": 50,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "ebdd6e9c-c5ca-40f5-83ba-b75d95ba77db",
+          "ruleId": "Api.0003",
+          "description": "Nullable JsonDocument properties deserialize to JsonValueKind.Null ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using var doc = JsonDocument.Parse(json);",
+              "protected": "T:System.Text.Json.JsonDocument"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "using var doc = JsonDocument.Parse(json);",
+            "protectedSnippet": "T:System.Text.Json.JsonDocument",
+            "label": "T:System.Text.Json.JsonDocument",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/serialization/9.0/jsondocument-props.md",
+                "isCustom": false
+              }
+            ],
+            "line": 50,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "90a30802-b824-4b9b-aba8-a5935d4b6e04",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Security.Cryptography.ProtectedData, 8.0.0. Add package reference to System.Security.Cryptography.ProtectedData, 8.0.0",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var enc = \u0022enc:\u0022 \u002B Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(token), null, DataProtectionScope.CurrentUser));",
+              "protected": "T:System.Security.Cryptography.DataProtectionScope"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var enc = \u0022enc:\u0022 \u002B Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(token), null, DataProtectionScope.CurrentUser));",
+            "protectedSnippet": "T:System.Security.Cryptography.DataProtectionScope",
+            "label": "T:System.Security.Cryptography.DataProtectionScope",
+            "properties": {
+              "PackageId": "System.Security.Cryptography.ProtectedData",
+              "PackageNewVersion": "8.0.0"
+            },
+            "line": 39,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a78a38a5-61f1-41bb-82d8-ebc0e38e000d",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Security.Cryptography.ProtectedData, 8.0.0. Add package reference to System.Security.Cryptography.ProtectedData, 8.0.0",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var enc = \u0022enc:\u0022 \u002B Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(token), null, DataProtectionScope.CurrentUser));",
+              "protected": "T:System.Security.Cryptography.DataProtectionScope"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var enc = \u0022enc:\u0022 \u002B Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(token), null, DataProtectionScope.CurrentUser));",
+            "protectedSnippet": "T:System.Security.Cryptography.DataProtectionScope",
+            "label": "T:System.Security.Cryptography.DataProtectionScope",
+            "properties": {
+              "PackageId": "System.Security.Cryptography.ProtectedData",
+              "PackageNewVersion": "8.0.0"
+            },
+            "line": 39,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "7cf7a975-c52a-4703-86ad-4f0946d0e11d",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Security.Cryptography.ProtectedData, 8.0.0. Add package reference to System.Security.Cryptography.ProtectedData, 8.0.0",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var enc = \u0022enc:\u0022 \u002B Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(token), null, DataProtectionScope.CurrentUser));",
+              "protected": "F:System.Security.Cryptography.DataProtectionScope.CurrentUser"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var enc = \u0022enc:\u0022 \u002B Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(token), null, DataProtectionScope.CurrentUser));",
+            "protectedSnippet": "F:System.Security.Cryptography.DataProtectionScope.CurrentUser",
+            "label": "F:System.Security.Cryptography.DataProtectionScope.CurrentUser",
+            "properties": {
+              "PackageId": "System.Security.Cryptography.ProtectedData",
+              "PackageNewVersion": "8.0.0"
+            },
+            "line": 39,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b60d8f39-e171-44b2-bb0e-a04db141734d",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Security.Cryptography.ProtectedData, 8.0.0. Add package reference to System.Security.Cryptography.ProtectedData, 8.0.0",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var enc = \u0022enc:\u0022 \u002B Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(token), null, DataProtectionScope.CurrentUser));",
+              "protected": "T:System.Security.Cryptography.ProtectedData"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var enc = \u0022enc:\u0022 \u002B Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(token), null, DataProtectionScope.CurrentUser));",
+            "protectedSnippet": "T:System.Security.Cryptography.ProtectedData",
+            "label": "T:System.Security.Cryptography.ProtectedData",
+            "properties": {
+              "PackageId": "System.Security.Cryptography.ProtectedData",
+              "PackageNewVersion": "8.0.0"
+            },
+            "line": 39,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "59721a9f-cac1-4274-8504-c2981d13e0ab",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Security.Cryptography.ProtectedData, 8.0.0. Add package reference to System.Security.Cryptography.ProtectedData, 8.0.0",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var enc = \u0022enc:\u0022 \u002B Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(token), null, DataProtectionScope.CurrentUser));",
+              "protected": "M:System.Security.Cryptography.ProtectedData.Protect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var enc = \u0022enc:\u0022 \u002B Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(token), null, DataProtectionScope.CurrentUser));",
+            "protectedSnippet": "M:System.Security.Cryptography.ProtectedData.Protect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)",
+            "label": "M:System.Security.Cryptography.ProtectedData.Protect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)",
+            "properties": {
+              "PackageId": "System.Security.Cryptography.ProtectedData",
+              "PackageNewVersion": "8.0.0"
+            },
+            "line": 39,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e20fdbd6-c135-47d1-aace-f0603613481e",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var h = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Double)"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var h = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Double)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Double)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 31,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "dd790726-5c3f-4bec-860e-9399bf81e529",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Security.Cryptography.ProtectedData, 8.0.0. Add package reference to System.Security.Cryptography.ProtectedData, 8.0.0",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var token = tokenRaw.StartsWith(\u0022enc:\u0022, StringComparison.OrdinalIgnoreCase)\r\n            ? Encoding.UTF8.GetString(ProtectedData.Unprotect(Convert.FromBase64String(tokenRaw[4..]), null, DataProtectionScope.CurrentUser))\r\n            : tokenRaw;",
+              "protected": "T:System.Security.Cryptography.DataProtectionScope"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var token = tokenRaw.StartsWith(\u0022enc:\u0022, StringComparison.OrdinalIgnoreCase)\r\n            ? Encoding.UTF8.GetString(ProtectedData.Unprotect(Convert.FromBase64String(tokenRaw[4..]), null, DataProtectionScope.CurrentUser))\r\n            : tokenRaw;",
+            "protectedSnippet": "T:System.Security.Cryptography.DataProtectionScope",
+            "label": "T:System.Security.Cryptography.DataProtectionScope",
+            "properties": {
+              "PackageId": "System.Security.Cryptography.ProtectedData",
+              "PackageNewVersion": "8.0.0"
+            },
+            "line": 27,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "83991f9b-7550-44da-a0b2-7db8963c19e2",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Security.Cryptography.ProtectedData, 8.0.0. Add package reference to System.Security.Cryptography.ProtectedData, 8.0.0",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var token = tokenRaw.StartsWith(\u0022enc:\u0022, StringComparison.OrdinalIgnoreCase)\r\n            ? Encoding.UTF8.GetString(ProtectedData.Unprotect(Convert.FromBase64String(tokenRaw[4..]), null, DataProtectionScope.CurrentUser))\r\n            : tokenRaw;",
+              "protected": "T:System.Security.Cryptography.DataProtectionScope"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var token = tokenRaw.StartsWith(\u0022enc:\u0022, StringComparison.OrdinalIgnoreCase)\r\n            ? Encoding.UTF8.GetString(ProtectedData.Unprotect(Convert.FromBase64String(tokenRaw[4..]), null, DataProtectionScope.CurrentUser))\r\n            : tokenRaw;",
+            "protectedSnippet": "T:System.Security.Cryptography.DataProtectionScope",
+            "label": "T:System.Security.Cryptography.DataProtectionScope",
+            "properties": {
+              "PackageId": "System.Security.Cryptography.ProtectedData",
+              "PackageNewVersion": "8.0.0"
+            },
+            "line": 27,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "8269e4f1-4e9a-4d7a-9d58-693af2f7c089",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Security.Cryptography.ProtectedData, 8.0.0. Add package reference to System.Security.Cryptography.ProtectedData, 8.0.0",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var token = tokenRaw.StartsWith(\u0022enc:\u0022, StringComparison.OrdinalIgnoreCase)\r\n            ? Encoding.UTF8.GetString(ProtectedData.Unprotect(Convert.FromBase64String(tokenRaw[4..]), null, DataProtectionScope.CurrentUser))\r\n            : tokenRaw;",
+              "protected": "F:System.Security.Cryptography.DataProtectionScope.CurrentUser"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var token = tokenRaw.StartsWith(\u0022enc:\u0022, StringComparison.OrdinalIgnoreCase)\r\n            ? Encoding.UTF8.GetString(ProtectedData.Unprotect(Convert.FromBase64String(tokenRaw[4..]), null, DataProtectionScope.CurrentUser))\r\n            : tokenRaw;",
+            "protectedSnippet": "F:System.Security.Cryptography.DataProtectionScope.CurrentUser",
+            "label": "F:System.Security.Cryptography.DataProtectionScope.CurrentUser",
+            "properties": {
+              "PackageId": "System.Security.Cryptography.ProtectedData",
+              "PackageNewVersion": "8.0.0"
+            },
+            "line": 27,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "3bfb4134-73b7-4677-ad82-cdca949365b0",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Security.Cryptography.ProtectedData, 8.0.0. Add package reference to System.Security.Cryptography.ProtectedData, 8.0.0",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var token = tokenRaw.StartsWith(\u0022enc:\u0022, StringComparison.OrdinalIgnoreCase)\r\n            ? Encoding.UTF8.GetString(ProtectedData.Unprotect(Convert.FromBase64String(tokenRaw[4..]), null, DataProtectionScope.CurrentUser))\r\n            : tokenRaw;",
+              "protected": "T:System.Security.Cryptography.ProtectedData"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var token = tokenRaw.StartsWith(\u0022enc:\u0022, StringComparison.OrdinalIgnoreCase)\r\n            ? Encoding.UTF8.GetString(ProtectedData.Unprotect(Convert.FromBase64String(tokenRaw[4..]), null, DataProtectionScope.CurrentUser))\r\n            : tokenRaw;",
+            "protectedSnippet": "T:System.Security.Cryptography.ProtectedData",
+            "label": "T:System.Security.Cryptography.ProtectedData",
+            "properties": {
+              "PackageId": "System.Security.Cryptography.ProtectedData",
+              "PackageNewVersion": "8.0.0"
+            },
+            "line": 27,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "31667b37-4937-4c2e-9542-354209833282",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Security.Cryptography.ProtectedData, 8.0.0. Add package reference to System.Security.Cryptography.ProtectedData, 8.0.0",
+          "projectPath": "FortiCertSync\\FortiCertSync.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var token = tokenRaw.StartsWith(\u0022enc:\u0022, StringComparison.OrdinalIgnoreCase)\r\n            ? Encoding.UTF8.GetString(ProtectedData.Unprotect(Convert.FromBase64String(tokenRaw[4..]), null, DataProtectionScope.CurrentUser))\r\n            : tokenRaw;",
+              "protected": "M:System.Security.Cryptography.ProtectedData.Unprotect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)"
+            },
+            "kind": "File",
+            "path": "FortiCertSync\\FortiClient.cs",
+            "snippet": "var token = tokenRaw.StartsWith(\u0022enc:\u0022, StringComparison.OrdinalIgnoreCase)\r\n            ? Encoding.UTF8.GetString(ProtectedData.Unprotect(Convert.FromBase64String(tokenRaw[4..]), null, DataProtectionScope.CurrentUser))\r\n            : tokenRaw;",
+            "protectedSnippet": "M:System.Security.Cryptography.ProtectedData.Unprotect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)",
+            "label": "M:System.Security.Cryptography.ProtectedData.Unprotect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)",
+            "properties": {
+              "PackageId": "System.Security.Cryptography.ProtectedData",
+              "PackageNewVersion": "8.0.0"
+            },
+            "line": 27,
+            "column": 8
+          }
+        }
+      ],
+      "features": []
+    }
+  ],
+  "rules": {
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "isFeature": false,
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "isFeature": false,
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0003": {
+      "id": "Api.0003",
+      "isFeature": false,
+      "description": "API has a behavioral change in selected .NET version: code and binaries may behave differently at runtime without needing recompilation, but the new behavior might be undesirable and require updates.",
+      "label": "Behavioral change in selected .NET version",
+      "severity": "Potential",
+      "effort": 1
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "isFeature": false,
+      "description": "API is source incompatible for selected .NET version: requires code changes to compile successfully when targeting a new version, such as removing obsolete APIs or changing method signatures.",
+      "label": "Source incompatible for selected .NET version",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}
