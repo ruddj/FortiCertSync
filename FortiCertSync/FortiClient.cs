@@ -116,7 +116,7 @@ internal sealed class FortiClient
             }
 
             var b64 = pem[(i + begin.Length)..j].Replace("\r", "").Replace("\n", "").Trim();
-            using var x509 = new X509Certificate2(Convert.FromBase64String(b64));
+            using var x509 = X509CertificateLoader.LoadCertificate(Convert.FromBase64String(b64));
             var cn = x509.GetNameInfo(X509NameType.DnsName, false);
             if (string.IsNullOrWhiteSpace(cn))
                 cn = x509.GetNameInfo(X509NameType.SimpleName, false);
@@ -206,9 +206,7 @@ internal sealed class FortiClient
     public async Task ImportCaFromPfxAsync(string? vdom, string pfxPass, byte[] pfxBytes)
     {
         var scope = string.IsNullOrEmpty(vdom) || vdom.Equals("root", StringComparison.OrdinalIgnoreCase) ? "global" : "vdom";
-
-        var collection = new X509Certificate2Collection();
-        collection.Import(pfxBytes, pfxPass, X509KeyStorageFlags.Exportable);
+        var collection = X509CertificateLoader.LoadPkcs12Collection(pfxBytes, pfxPass, X509KeyStorageFlags.Exportable);
 
         // Leaf = the one with private key
         var leaf = collection.Cast<X509Certificate2>().FirstOrDefault(c => c.HasPrivateKey);
