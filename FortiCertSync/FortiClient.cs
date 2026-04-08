@@ -219,7 +219,7 @@ internal sealed class FortiClient
             if (c.Thumbprint == leaf.Thumbprint) continue;
 
             // Default: import intermediates, skip self-signed roots
-            if (c.Subject == c.Issuer) continue;
+            if (c.SubjectName.RawData.SequenceEqual(c.IssuerName.RawData)) continue;
             await ImportCaCertAsync(vdom, scope, c);
         }
     }
