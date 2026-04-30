@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<!-- Targets -->
 		<OutputType>Exe</OutputType>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
 
 		<!-- Lang/quality -->
@@ -27,7 +27,7 @@
 		<Copyright>© 2026 Nikolay Ryazantsev</Copyright>
 
 		<!-- Versioning -->
-		<VersionPrefix>1.0.3</VersionPrefix>
+		<VersionPrefix>1.0.4</VersionPrefix>
 		<AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
 		<FileVersion>$(VersionPrefix)</FileVersion>
 		<InformationalVersion>$(VersionPrefix)</InformationalVersion>
@@ -52,8 +52,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Security.Cryptography.ProtectedData" Version="9.0.8" />
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+		<PackageReference Include="System.Security.Cryptography.ProtectedData" Version="10.0.5" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.201" PrivateAssets="All" />
 	</ItemGroup>
 
 	<ItemGroup>
