@@ -68,7 +68,7 @@ try
             if (needImport)
             {
                 // 3) Import PFX
-                var newSlotName = $"{certName}_{DateTime.Now.Date:ddMMyyyy}";
+                var newSlotName = $"{certName}_{DateTime.Now.Date:yyyyMMdd}";
                 var (pfxBytes, pfxPass) = WindowsCertService.ExportPkcs12(newestWindows);
                 await forti.ImportLocalCertAsync(vdom, newSlotName, pfxPass, pfxBytes);
                 await forti.ImportCaFromPfxAsync(vdom, pfxPass, pfxBytes);
@@ -115,8 +115,12 @@ static bool TrySplitNameWithDate(string slotName, out string baseName, out DateT
     var suffix = slotName.AsSpan(idx + 1);
     if (suffix.Length != 8) return false;
 
-    if (DateTime.TryParseExact(suffix, "ddMMyyyy",
-            CultureInfo.InvariantCulture, DateTimeStyles.None, out var d))
+    // Try parsing date in either yyyyMMdd or ddMMyyyy format. Allows conversion from old date format.
+    DateTime d;
+    if (DateTime.TryParseExact(suffix, "yyyyMMdd",
+            CultureInfo.InvariantCulture, DateTimeStyles.None, out d) ||
+        DateTime.TryParseExact(suffix, "ddMMyyyy",
+            CultureInfo.InvariantCulture, DateTimeStyles.None, out d))
     {
         baseName = slotName[..idx];
         date = d;
