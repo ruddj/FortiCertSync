@@ -115,8 +115,12 @@ static bool TrySplitNameWithDate(string slotName, out string baseName, out DateT
     var suffix = slotName.AsSpan(idx + 1);
     if (suffix.Length != 8) return false;
 
+    // Try parsing date in either yyyyMMdd or ddMMyyyy format. Allows conversion from old date format.
+    DateTime d;
     if (DateTime.TryParseExact(suffix, "yyyyMMdd",
-            CultureInfo.InvariantCulture, DateTimeStyles.None, out var d))
+            CultureInfo.InvariantCulture, DateTimeStyles.None, out d) ||
+        DateTime.TryParseExact(suffix, "ddMMyyyy",
+            CultureInfo.InvariantCulture, DateTimeStyles.None, out d))
     {
         baseName = slotName[..idx];
         date = d;
